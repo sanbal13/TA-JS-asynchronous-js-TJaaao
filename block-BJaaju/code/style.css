@@ -1,0 +1,115 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*************************** Custom Styles begins here ********************/
+html {
+    font-size: 16px;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+    background-color: #8B5CF6;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #A78BFA;
+    box-shadow: 1px 1px 10px grey;
+    border-radius: 1rem;
+}
+
+/********************** Heading **********************/
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    color: #4C1D95;
+    text-shadow: 1px 1px 4px #C4B5FD; 
+    box-shadow: inset 1px 1px 5px #4C1D95;
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    letter-spacing: 1px;
+} 
+
+/********************** Main **********************/
+input {
+    color: #EDE9FE;
+    background-color: #4C1D95;
+    margin: 0 auto;
+    display: block;
+    padding: .5rem 1rem;
+    border: 0;
+    outline: 0;
+    font-size: 1.3rem;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 5px grey;
+}
+::placeholder {
+    color: #C4B5FD;
+}
+
+.gallery {
+    margin-top: 2rem;
+}
+
+img {
+    width: 222px;
+    height: 300px;
+    margin-right: 10px;
+    border-radius: .5rem;
+}
