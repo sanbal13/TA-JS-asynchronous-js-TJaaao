@@ -2,18 +2,27 @@
 
 ```js
 // Your code
+
+ let promise = new Promise((resolve, reject) => {
+     setTimeout(resolve(`Promise Resolved`), 1000);
+ }).then(value => console.log(value));
 ```
 
 2. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch`
 
 ```js
-// Your code
+let rejPro = new Promise((resolve, reject) => {
+    reject(`Rejected Promise!`);
+}).catch(error => console.log(error));
 ```
 
 3. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch` and also use `.finally` to log message `Promise Settled!`.
 
 ```js
 // Your code
+let rejPro2 = new Promise((resolve, reject) => {
+    reject('Rejected Promise!');
+}).catch((value) => console.log(value)).finally(() => console.log('Promise settled!'));
 ```
 
 4. What will be the output of the code below.
@@ -28,12 +37,24 @@ setTimeout(() => console.log('B'), 0); // callback queue
 Promise.resolve().then(() => console.log('C'));
 
 console.log('D');
+
+// Output:
+A
+D
+C
+B
 ```
+
 
 5. Write a function named `wait` that accepts `time` in ms returns a promise. The promise gets resolved after given time.
 
 ```js
 // Your code
+function wait(time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(), time);
+    }); 
+}
 ```
 
 6. Do the following:
@@ -47,6 +68,16 @@ console.log('D');
 
 ```js
 // Your code
+let newPromise = new Promise((resolve, reject) => {
+        resolve(21);
+}).then((val) => val+10)
+  .then((val) => val + 100)
+  .then((val) => { 
+      if(val > 100){
+          throw new Error('Something went wrong');
+      }
+      })
+   .catch ((error) => console.log(error));   
 ```
 
 7. Do the following:
@@ -58,7 +89,19 @@ console.log('D');
 - Use `.then` and log the value
 
 ```js
-// Your code
+let promise = new Promise((resolve, reject) => {
+    resolve(['A']);
+}).then((val) => { val.push('B')
+                   return val})
+  .then((val) => {
+      let obj = {};
+      val.forEach((elm, index) => {
+          obj[index] = elm;
+      }      
+  )
+  return obj;
+})
+  .then((val) => console.log(val));    
 ```
 
 8. Do the following:
@@ -69,7 +112,32 @@ console.log('D');
 - Chain `.then` on above and return `4` also check the value you get access to by logging
 
 ```js
-// Your code
+let first = new Promise((resolve, reject) => {
+    resolve(1);
+}).then(val => 
+    {
+        console.log(val);
+        return 2;
+    }    
+    )
+   .then(val => 
+    {
+        console.log(val);
+        return 3;
+    }    
+    ) 
+   .then(val => 
+    {
+        console.log(val);
+        return 4;
+    }    
+    ); 
+
+    // Output
+    1
+    2
+    3
+
 ```
 
 9. Do the following:
@@ -80,10 +148,39 @@ console.log('D');
 - Use `.then` on `first` and return `4` also check the value you get access to by logging
 
 ```js
-// Your code
+let first = new Promise((resolve, reject) => {
+    resolve(1);
+})
+
+first.then(val => 
+    {
+        console.log(val);
+        return 2;
+    }    
+    )
+  first .then(val => 
+    {
+        console.log(val);
+        return 3;
+    }    
+    ) 
+  first .then(val => 
+    {
+        console.log(val);
+        return 4;
+    }    
+    ); 
+
+    // Output
+    1
+    1
+    1
 ```
 
-10. Try to understand the difference between the problem 8 and 9. Write your observation.
+10. Try to understand the difference between the problem 8 and 9. Write your observation.  
+
+   In `problem 8` then is chained one after the other. 
+   In `problem 8` then is called on first all the time, no chaining happens. 
 
 11. Do the following
 
@@ -94,4 +191,16 @@ console.log('D');
 
 ```js
 // Your code
+
+let promise = new Promise((resolve, reject) => {
+    resolve('John');
+});
+
+let promise1 = promise.then(() => new Promise((resolve, reject) => {
+    resolve('Arya');
+}))
+
+let promise2 = promise.then(() => new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Bran'), 2000);
+})).then ((val) => console.log(val));
 ```
