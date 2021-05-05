@@ -101,7 +101,7 @@ select {
     padding: .5rem 1rem;
     font-size: 1.3rem;
     color:#B45309;
-    background-color: #FCD34D; 
+    background-color: #fcd34d; 
     outline: none;
     border: 0;
     border-radius: .5rem;
@@ -128,7 +128,7 @@ img {
     height: 200px;
 }
 .source {
-    background-color: #D97706 ;
+    background-color: #d97706 ;
     padding: .5rem 1rem;
     border-radius: 50rem;
     box-shadow: inset 0px 0px 5px green;
@@ -154,4 +154,34 @@ button:hover {
     background-color: #D97706;
     color: #FCD34D;
 }
+
+/*************************** Donut Spinner ***************************/
+@keyframes donut-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .donut {
+    display: block;
+    border: 16px solid rgba(252, 211, 77, 0.5);
+    border-left-color: rgba(217, 119, 6, .8);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    animation: donut-spin 1.2s linear infinite;
+    margin: 5rem auto;
+  }
+
+  .error {
+      text-align: center;
+      margin: 5rem auto;
+      font-size: 1.8rem;
+      color: red;
+      display: none;
+
+  }
 

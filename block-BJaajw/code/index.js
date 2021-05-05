@@ -1,28 +1,52 @@
-let url = 'https://test.spaceflightnewsapi.net/api/v2/articles?_limit=30git ';
+let url = 'https://test.spaceflightnewsapi.net/api/v2/articles?_limit=30';
 let newsElm = document.querySelector(".newsElm");
 let select = document.querySelector("select");
+let errorElm = document.querySelector(".error");
+let main = document.querySelector("main");
 let allNews = [];
 
-let news = fetch(url).then(res => {
-                        if(!res.ok) {
-                            throw new Error(res.status);
-                        }
-                        return res.json()
-                    })
-                     .then(news => {
-                         allNews = news;
-                         renderNews(news);
-                         let allSources = Array.from(new Set(news.map((n) => n.newsSite)));
-                         console.log(allSources);
-                         displayOptions(allSources);
-                     })
-                     .catch((error) => {
-                         console.log(error);
-                         newsElm.style.color ='red';
-                         newsElm.style.textAlign ='center';
-                         newsElm.innerText = error;
-                     })
-                     .finally();
+
+function handleErrorMessage(message = 'Something went wrong ...') {
+    main.style.display = 'none';
+    errorElm.style.display = 'block';
+    errorElm.innerText = message;
+}
+
+
+
+{/* <div class="donut"></div> */}
+
+function handleSpinner(status = false) {
+    if(status) {
+        newsElm.innerHTML ='<div class="donut"></div>';
+    }    
+}
+
+function init() {
+    handleSpinner(true);
+    let news = fetch(url).then(res => {
+        if(!res.ok) {
+           throw new Error(Error);
+        }
+        return res.json()
+    })
+     .then(news => {
+        handleSpinner(false);
+         allNews = news;
+         renderNews(news);
+         let allSources = Array.from(new Set(news.map((n) => n.newsSite)));
+         console.log(allSources);
+         displayOptions(allSources);
+     })
+     .catch((error) => {
+         handleErrorMessage(error);
+     })
+     .finally(() => {
+         handleSpinner();
+     });
+
+}
+
 
 function displayOptions(sources) {
     sources.forEach((source) => {
@@ -67,6 +91,14 @@ select.addEventListener('change', (event) => {
     }
     renderNews(filteredNews);
 });
+
+if(navigator.onLine) {
+    init();
+} else {
+    handleErrorMessage('❌ Check your internet connection!');
+}
+
+
 
 
                    
