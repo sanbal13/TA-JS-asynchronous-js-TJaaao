@@ -61,6 +61,12 @@ body {
 *::after {
     box-sizing: border-box;
 }
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
 /*************************** Heading ***************************/
 h1, h2, h3, h4 {
     font-weight: 700;
@@ -75,6 +81,7 @@ h2 {
 }
 h3 {
     font-size: 1.75rem;
+    margin-top: 1rem;
 }
 h4 {
     font-size: 1.25rem;
@@ -88,7 +95,7 @@ header{
 }
 
 /*************************** Main ***************************/
-input {
+select {
     display: block;
     margin: 1rem auto;
     padding: .5rem 1rem;
@@ -98,8 +105,53 @@ input {
     outline: none;
     border: 0;
     border-radius: .5rem;
-
+    /* width: 10rem; */
 }
 ::placeholder {
     color: #D97706;
 }
+
+li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 1px 1px 10px 1px #B45309;
+    margin-bottom: 2rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+img {
+    flex: 0 1 10%;
+    margin: 1rem;
+    width: 170px;
+    height: 200px;
+}
+.source {
+    background-color: #D97706 ;
+    padding: .5rem 1rem;
+    border-radius: 50rem;
+    box-shadow: inset 0px 0px 5px green;
+}
+.info {
+    margin: 2rem;
+}
+
+button {
+    align-self: flex-end;
+    background-color: #FCD34D;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border: 0;
+    outline: 0;
+    border-radius: .5rem;
+    margin-top: 1.5rem;
+    margin-left: 70%;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #D97706;
+    color: #FCD34D;
+}
+
