@@ -31,4 +31,9 @@ Promise.all([
   'Sam',
   { name: 'John' },
 ]).then(console.log);
+
+// Output
+[Arya, Sam, {name: 'John'}]
+//Time taken to resolve the Promise
+1sec
 ```
