@@ -1,0 +1,199 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*************************** Custom Styles begins here ********************/
+html {
+    font-size: 16px;
+}
+body {
+    line-height: 1.5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #D1FAE5;
+    position: relative;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 2rem;
+    border: 1px solid #065F46;
+}
+
+/************************ Headings ************************/
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+h3 {
+    font-size: 1.5rem;
+}
+h4 {
+    font-size: 1.3rem;
+}
+
+/************************ Header  ************************/
+header {
+    background-color: #047857;
+    text-align: center;
+    color: #ECFDF5;
+    
+    border-bottom-right-radius: 10rem;
+    border-top-right-radius: 100%; 
+
+    border-bottom-left-radius: 10rem;
+    border-top-left-radius: 100%; 
+
+    box-shadow: 1px 1px 10px grey;
+
+}
+
+/************************ Main  ************************/
+main{
+    background-color: #3e9e83;
+    box-shadow: inset 1px 1px 50px rgb(121, 5, 24);
+}
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+li {
+    background-color: #6EE7B7;
+    display: inline-block;
+    padding: 1rem;
+    margin-bottom: 1rem; 
+    flex: 0 1 30%;
+    text-align: center;
+    color: #065F46;
+    border-bottom-right-radius: 5rem;
+    border-bottom-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    box-shadow: inset 1px 1px 50px rgb(247, 247, 114);
+}
+
+button {
+    background-color: #1dd174;
+    font-weight: 700;
+    padding: .5rem 1rem;
+    margin: 1rem;
+    border: 0;
+    border-radius: .5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #06582e;
+    color: #fff;
+}
+
+/************************ Modal  ************************/
+.modal {
+    display: none;
+    position: absolute;    
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    background-color: black;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.characters {
+    flex: 0 1 100%;
+    border-radius: 1rem;
+}
+
+.close {
+    color: #1dd174;
+    border: 2px solid #06582e;
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border-radius: 1rem;    
+}
+
+.close:hover {
+    color: #06582e;
+    background-color: #1dd174;
+    
+}
+
+/************ Doughnut Spinner ************/
+@keyframes donut-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .donut {
+    display: inline-block;
+    border: 10px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #06582e;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 20rem auto;
+    animation: donut-spin 1.2s linear infinite;
+  }
